@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG Remover — Free Background Removal</title>
+  <meta name="description" content="Remove image backgrounds instantly in your browser. Free, private, no uploads.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <header>
+    <h1>BG Remover</h1>
+    <p class="tagline">Remove backgrounds instantly — free, private, runs in your browser</p>
+  </header>
+
+  <main>
+    <!-- Upload Area -->
+    <label id="upload-area" class="drop-zone" for="file-input">
+      <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      <p class="drop-text">Drag & drop an image here</p>
+      <p class="drop-or">or</p>
+      <span id="choose-btn">Choose File</span>
+      <p class="formats">PNG, JPG, WebP supported</p>
+      <input type="file" id="file-input" accept="image/*" hidden>
+    </label>
+
+    <!-- Processing Area -->
+    <section id="processing-area" class="hidden">
+      <!-- Progress -->
+      <div id="progress-container">
+        <div id="progress-bar-track">
+          <div id="progress-bar"></div>
+        </div>
+        <p id="progress-text">Loading model...</p>
+      </div>
+
+      <!-- Comparison -->
+      <div id="comparison-container" class="hidden">
+        <div id="image-wrapper">
+          <img id="original-image" alt="Original">
+          <div id="result-overlay">
+            <img id="result-image" alt="Background removed">
+          </div>
+          <div id="slider-handle">
+            <div class="slider-line"></div>
+            <div class="slider-grip"></div>
+            <div class="slider-line"></div>
+          </div>
+        </div>
+        <div class="labels">
+          <span>Original</span>
+          <span>Removed</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div id="actions" class="hidden">
+        <button id="download-btn" type="button">Download PNG</button>
+        <button id="new-image-btn" type="button" class="btn-outline">New Image</button>
+      </div>
+
+      <!-- Error -->
+      <div id="error-container" class="hidden">
+        <p id="error-text"></p>
+        <button id="retry-btn" type="button" class="btn-outline">Try Again</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>100% client-side — your images never leave your device.</p>
+    <p class="footer-note">Powered by <a href="https://img.ly" target="_blank" rel="noopener">IMG.LY</a> background removal</p>
+    <p class="copyright">&copy; 2026 <a href="https://garrik.design/bgremover" target="_blank" rel="noopener">garrik.design</a></p>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
